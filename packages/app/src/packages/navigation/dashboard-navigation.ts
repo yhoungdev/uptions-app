@@ -1,0 +1,24 @@
+import {
+	BarChart3,
+	Bell,
+	BookOpen,
+	FileText,
+	Hammer,
+	Home,
+	LineChart,
+} from "lucide-react";
+
+export const dashboardNavigationItems = [
+	{ label: "Dashboard", href: "/dashboard", icon: Home },
+	{ label: "Markets", href: "/markets", icon: LineChart },
+	{ label: "Build", href: "/builder", icon: Hammer },
+	{ label: "Templates", href: "/dashboard#templates", icon: FileText },
+	{ label: "Playbooks", href: "/dashboard#playbooks", icon: BookOpen },
+	{ label: "Analytics", href: "/analytics", icon: BarChart3 },
+] as const;
+
+export const dashboardActions = {
+	notificationsLabel: "Notifications",
+	walletLabel: "Connect Wallet",
+	notificationsIcon: Bell,
+} as const;

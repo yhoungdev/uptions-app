@@ -1,0 +1,5 @@
+{
+  "name": "uptions",
+  "private": true,
+  "workspaces": ["packages/*"]
+}
