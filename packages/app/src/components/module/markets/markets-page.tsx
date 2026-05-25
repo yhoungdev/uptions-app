@@ -4,10 +4,12 @@ import { ViewToggle } from "#/components/module/app-shell/product-shell.tsx";
 import { Typography } from "#/components/typography/typography.tsx";
 import { cn } from "#/lib/utils.ts";
 import { marketCategories, markets } from "#/packages/markets/markets-data.ts";
+import { DashboardLayout } from "#/components/layout/dashboard-layout";
 
 export function MarketsPage() {
 	return (
-		<main className="min-h-screen bg-[#07080a] text-white">
+		<DashboardLayout>
+			<main className="min-h-screen bg-[#07080a] text-white">
 			<section className="border-b border-white/10 px-4 py-3">
 				<div className="flex items-start justify-between gap-4">
 					<div>
@@ -55,6 +57,7 @@ export function MarketsPage() {
 				))}
 			</section>
 		</main>
+		</DashboardLayout>
 	);
 }
 

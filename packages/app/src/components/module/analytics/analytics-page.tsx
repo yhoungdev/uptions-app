@@ -12,30 +12,11 @@ import {
 	riskMetrics,
 	workflowPerformance,
 } from "#/packages/analytics/analytics-data.ts";
+import { DashboardLayout } from "#/components/layout/dashboard-layout";
 
 export function AnalyticsPage() {
 	return (
-		<ProductShell active="Analytics">
-			<section className="border-b border-white/10 px-5 py-5 sm:px-8">
-				<div className="flex items-start justify-between gap-4">
-					<div>
-						<Typography className="text-white" variant="h2">
-							Analytics
-						</Typography>
-						<Typography className="mt-1 text-white/55" variant="bodySm">
-							Performance insights and strategy metrics
-						</Typography>
-					</div>
-					<button
-						className="mt-3 flex items-center gap-3 text-sm text-white"
-						type="button"
-					>
-						Last 7 days
-						<ChevronDown className="size-4 text-white/45" />
-					</button>
-				</div>
-			</section>
-
+		<DashboardLayout>
 			<div className="grid gap-5 px-5 py-5 sm:px-8">
 				<MetricGrid />
 				<PortfolioCard />
@@ -45,7 +26,7 @@ export function AnalyticsPage() {
 				</div>
 				<RiskAnalysis />
 			</div>
-		</ProductShell>
+		</DashboardLayout>
 	);
 }
 
