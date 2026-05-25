@@ -11,6 +11,8 @@ type ThemeContextValue = {
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
 const storageKey = "uptions-theme";
+const themeTransitionClass = "theme-transitioning";
+const themeTransitionDuration = 260;
 
 function getInitialTheme(): Theme {
 	if (typeof window === "undefined") {
@@ -40,10 +42,16 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 	const value = useMemo(
 		() => ({
 			theme,
-			toggleTheme: () =>
+			toggleTheme: () => {
+				document.documentElement.classList.add(themeTransitionClass);
+				window.setTimeout(() => {
+					document.documentElement.classList.remove(themeTransitionClass);
+				}, themeTransitionDuration);
+
 				setTheme((currentTheme) =>
 					currentTheme === "dark" ? "light" : "dark",
-				),
+				);
+			},
 		}),
 		[theme],
 	);

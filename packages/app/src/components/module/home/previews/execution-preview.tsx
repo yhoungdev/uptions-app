@@ -1,23 +1,23 @@
 import { Activity } from "lucide-react";
 
-import { cn } from "#/lib/utils.ts";
-import { executionItems } from "#/packages/home/homepage-data.ts";
+import { cn } from "@/lib/utils.ts";
+import { executionItems } from "@/packages/home/homepage-data.ts";
 
 export function ExecutionPreview() {
 	return (
 		<div className="flex items-center justify-center md:min-h-[500px]">
-			<div className="w-full max-w-[540px] rounded-[48px] border border-black/5 bg-white px-9 py-10 shadow-[0_30px_80px_rgba(0,0,0,0.06)]">
-				<div className="rounded-2xl border border-black/10 bg-[#fbfaf8] p-6">
+			<div className="w-full max-w-[540px] rounded-[48px] border border-black/5 bg-app-inverse px-9 py-10">
+				<div className="border border-black/10 bg-app-surface p-6">
 					<div className="flex items-center justify-between border-b border-black/[0.06] pb-5">
 						<div>
-							<p className="text-sm font-semibold text-[#7b766f]">
+							<p className="text-sm font-semibold text-app-muted-fg">
 								Strategy status
 							</p>
 							<h3 className="mt-1 text-2xl font-bold tracking-[-0.04em] text-black">
 								Protected execution
 							</h3>
 						</div>
-						<span className="grid size-11 place-items-center rounded-full bg-[#ff5a1f] text-white">
+						<span className="grid size-11 place-items-center bg-primary text-primary-foreground">
 							<Activity className="size-5" />
 						</span>
 					</div>
@@ -28,13 +28,13 @@ export function ExecutionPreview() {
 
 							return (
 								<div
-									className="flex items-center justify-between rounded-xl border border-black/[0.06] bg-white p-4"
+									className="flex items-center justify-between border border-black/[0.06] bg-app-inverse p-4"
 									key={item.label}
 								>
 									<div className="flex items-center gap-3">
 										<span
 											className={cn(
-												"grid size-10 place-items-center rounded-full border",
+												"grid size-10 place-items-center  border",
 												item.tone,
 											)}
 										>
@@ -42,7 +42,7 @@ export function ExecutionPreview() {
 										</span>
 										<p className="text-sm font-bold text-black">{item.label}</p>
 									</div>
-									<p className="text-sm font-semibold text-[#7b766f]">
+									<p className="text-sm font-semibold text-app-muted-fg">
 										{item.value}
 									</p>
 								</div>
@@ -50,8 +50,8 @@ export function ExecutionPreview() {
 						})}
 					</div>
 
-					<div className="mt-6 h-2 overflow-hidden rounded-full bg-black/5">
-						<div className="h-full w-[82%] rounded-full bg-[#ff5a1f]" />
+					<div className="mt-6 h-2 overflow-hidden  bg-black/5">
+						<div className="h-full w-[82%]  bg-primary" />
 					</div>
 				</div>
 			</div>

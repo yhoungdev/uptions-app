@@ -1,5 +1,24 @@
 {
   "name": "uptions",
   "private": true,
-  "workspaces": ["packages/*"]
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "bun run --cwd packages/app dev",
+    "build": "bun run --cwd packages/app build",
+    "preview": "bun run --cwd packages/app preview",
+    "test": "bun run --cwd packages/app test",
+    "format": "bun run --cwd packages/app format",
+    "lint": "bun run --cwd packages/app lint",
+    "check": "bun run --cwd packages/app check",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "husky": "^9.1.7"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^21.0.1",
+    "@commitlint/config-conventional": "^21.0.1"
+  }
 }

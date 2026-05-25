@@ -5,37 +5,37 @@ export const analyticsMetrics = [
 		label: "Total Return",
 		value: "+12.8%",
 		detail: "+$14,620",
-		tone: "text-[#00d66f]",
+		tone: "text-success",
 		icon: LineChart,
 	},
 	{
 		label: "Win Rate",
 		value: "68.5%",
 		detail: "142 wins / 207 total",
-		tone: "text-[#2f80ff]",
+		tone: "text-info",
 		icon: CircleDot,
 	},
 	{
 		label: "Total Trades",
 		value: "207",
 		detail: "29.6 per day avg",
-		tone: "text-[#a855f7]",
+		tone: "text-violet",
 		icon: Activity,
 	},
 	{
 		label: "Automation Rate",
 		value: "78%",
 		detail: "162 automated / 207 total",
-		tone: "text-[#ffb000]",
+		tone: "text-warning",
 		icon: Zap,
 	},
 ] as const;
 
 export const portfolioMarkers = [
-	{ label: "BTC Momentum", x: 24, y: 42, color: "#00d66f" },
-	{ label: "ETH Mean Reversion", x: 41, y: 44, color: "#ff3b46" },
-	{ label: "SOL Breakout", x: 75, y: 41, color: "#2f80ff" },
-	{ label: "DOT Volatility", x: 92, y: 39, color: "#00d66f" },
+	{ label: "BTC Momentum", x: 24, y: 42, tone: "text-success" },
+	{ label: "ETH Mean Reversion", x: 41, y: 44, tone: "text-danger" },
+	{ label: "SOL Breakout", x: 75, y: 41, tone: "text-info" },
+	{ label: "DOT Volatility", x: 92, y: 39, tone: "text-success" },
 ] as const;
 
 export const portfolioPath =
@@ -97,7 +97,7 @@ export const riskMetrics = [
 		target: "Target: 15%",
 		status: "good",
 		progress: 82,
-		tone: "bg-[#2f80ff]",
+		tone: "bg-info",
 	},
 	{
 		label: "Max Drawdown",
@@ -105,7 +105,7 @@ export const riskMetrics = [
 		target: "Target: 10%",
 		status: "good",
 		progress: 82,
-		tone: "bg-[#2f80ff]",
+		tone: "bg-info",
 	},
 	{
 		label: "Sharpe Ratio",
@@ -113,7 +113,7 @@ export const riskMetrics = [
 		target: "Target: 1.5%",
 		status: "excellent",
 		progress: 100,
-		tone: "bg-[#00d66f]",
+		tone: "bg-success",
 	},
 	{
 		label: "Position Concentration",
@@ -121,6 +121,6 @@ export const riskMetrics = [
 		target: "Target: 30%",
 		status: "good",
 		progress: 94,
-		tone: "bg-[#2f80ff]",
+		tone: "bg-info",
 	},
 ] as const;

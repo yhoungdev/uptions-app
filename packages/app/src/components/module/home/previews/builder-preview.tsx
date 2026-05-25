@@ -1,11 +1,11 @@
-import { cn } from "#/lib/utils.ts";
-import { builderNodes } from "#/packages/home/homepage-data.ts";
+import { cn } from "@/lib/utils.ts";
+import { builderNodes } from "@/packages/home/homepage-data.ts";
 
 export function BuilderPreview() {
 	return (
 		<div className="flex items-center justify-center md:min-h-[500px]">
-			<div className="relative aspect-square w-full max-w-[540px] overflow-hidden rounded-[48px] border border-black/10 bg-[#fbfaf8] shadow-[0_30px_80px_rgba(0,0,0,0.06)]">
-				<div className="absolute inset-0 bg-[radial-gradient(circle,_rgba(0,0,0,0.12)_1px,_transparent_1px)] bg-[length:8px_8px] opacity-35" />
+			<div className="relative aspect-square w-full max-w-[540px] overflow-hidden rounded-[48px] border border-black/10 bg-app-surface">
+				<div className="absolute inset-0 bg-[radial-gradient(circle,_var(--app-border)_1px,_transparent_1px)] bg-[length:8px_8px] opacity-35" />
 				<svg
 					aria-hidden="true"
 					className="absolute inset-0 size-full"
@@ -15,13 +15,13 @@ export function BuilderPreview() {
 				>
 					<path
 						d="M110 220 H250"
-						stroke="#ff5a1f"
+						stroke="currentColor"
 						strokeDasharray="4 5"
 						strokeWidth="1.4"
 					/>
 					<path
 						d="M365 220 H442 C468 220 468 252 442 252 H390 C365 252 365 286 390 286 H430"
-						stroke="#ff5a1f"
+						stroke="currentColor"
 						strokeWidth="1.4"
 					/>
 				</svg>
@@ -32,7 +32,7 @@ export function BuilderPreview() {
 					return (
 						<div
 							className={cn(
-								"absolute rounded-md border border-black/10 bg-white px-3 py-2 shadow-[0_8px_22px_rgba(0,0,0,0.06)]",
+								"absolute border border-black/10 bg-app-inverse px-3 py-2",
 								node.className,
 							)}
 							key={node.label}
@@ -41,7 +41,7 @@ export function BuilderPreview() {
 							<div className="flex items-center gap-2">
 								<span
 									className={cn(
-										"grid size-4 place-items-center rounded-full",
+										"grid size-4 place-items-center ",
 										node.iconClassName,
 									)}
 								>
@@ -49,7 +49,7 @@ export function BuilderPreview() {
 								</span>
 								<div className="min-w-0">
 									{node.eyebrow ? (
-										<p className="mb-1 text-[9px] font-bold leading-none text-[#2563eb]">
+										<p className="mb-1 text-[9px] font-bold leading-none text-info">
 											{node.eyebrow}
 										</p>
 									) : null}

@@ -1,11 +1,11 @@
 import { ChevronDown, Play, Redo2, Undo2, Wallet, X } from "lucide-react";
 
-import { Typography } from "#/components/typography/typography.tsx";
-import { Button } from "#/components/ui/button.tsx";
+import { Typography } from "@/components/typography/typography.tsx";
+import { Button } from "@/components/ui/button.tsx";
 
 export function WorkflowToolbar() {
 	return (
-		<header className="flex h-[68px] shrink-0 items-center justify-between border-b border-white/10 bg-[#111111] px-5">
+		<header className="flex h-[68px] shrink-0 items-center justify-between border-b border-white/10 bg-builder-panel px-5">
 			<Typography className="text-white" variant="h3">
 				Untitled Workflow
 			</Typography>
@@ -14,7 +14,7 @@ export function WorkflowToolbar() {
 				<div className="hidden items-center gap-4 text-white/60 sm:flex">
 					<Button
 						aria-label="Undo"
-						className="size-8 rounded-full border-0 bg-transparent text-white/70 hover:bg-white/8 hover:text-white"
+						className="size-8  border-0 bg-transparent text-white/70 hover:bg-white/8 hover:text-white"
 						size="icon"
 						type="button"
 						variant="ghost"
@@ -23,7 +23,7 @@ export function WorkflowToolbar() {
 					</Button>
 					<Button
 						aria-label="Redo"
-						className="size-8 rounded-full border-0 bg-transparent text-white/40 hover:bg-white/8 hover:text-white"
+						className="size-8  border-0 bg-transparent text-white/40 hover:bg-white/8 hover:text-white"
 						size="icon"
 						type="button"
 						variant="ghost"
@@ -33,7 +33,7 @@ export function WorkflowToolbar() {
 				</div>
 
 				<Button
-					className="hidden h-9 gap-2 rounded-full border-0 bg-transparent px-2 text-sm font-medium text-white hover:bg-white/8 md:inline-flex"
+					className="hidden h-9 gap-2  border-0 bg-transparent px-2 text-sm font-medium text-white hover:bg-white/8 md:inline-flex"
 					type="button"
 					variant="ghost"
 				>
@@ -42,7 +42,7 @@ export function WorkflowToolbar() {
 				</Button>
 
 				<Button
-					className="h-9 rounded-full border-0 bg-transparent px-2 text-sm font-medium text-white hover:bg-white/8"
+					className="h-9  border-0 bg-transparent px-2 text-sm font-medium text-white hover:bg-white/8"
 					type="button"
 					variant="ghost"
 				>
@@ -50,7 +50,7 @@ export function WorkflowToolbar() {
 					Test Run
 				</Button>
 
-				<Button className="h-10 rounded-full bg-[#ff5a1f] px-6 text-sm font-semibold text-white shadow-none hover:bg-[#e94c14]">
+				<Button className="h-10 bg-primary px-6 text-sm font-semibold text-primary-foreground hover:bg-primary/90">
 					<Wallet className="size-4 md:hidden" />
 					<span className="hidden md:inline">Publish</span>
 				</Button>

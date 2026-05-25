@@ -1,9 +1,9 @@
-import { ApiError } from "#/components/errors/api.error.ts";
+import { ApiError } from "@/components/errors/api.error.ts";
 import type {
 	ApiServiceConfig,
 	HttpMethod,
 	RequestOptions,
-} from "#/packages/types/api.types.ts";
+} from "@/packages/types/api.types.ts";
 
 export class ApiService {
 	private readonly baseUrl: string;
@@ -164,3 +164,10 @@ export class ApiService {
 		return fallback || "Request failed";
 	}
 }
+
+
+export const uptionsRequest = new ApiService({
+    baseUrl: "",
+    headers: {},
+
+})
