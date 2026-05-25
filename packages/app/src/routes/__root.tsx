@@ -7,6 +7,26 @@ import { ThemeProvider } from "#/components/theme/theme-provider.tsx";
 
 import appCss from "../styles.css?url";
 
+const themeScript = `
+(function () {
+  try {
+    var storageKey = "uptions-theme";
+    var storedTheme = window.localStorage.getItem(storageKey);
+    var theme = storedTheme === "light" || storedTheme === "dark"
+      ? storedTheme
+      : window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+
+    document.documentElement.classList.toggle("dark", theme === "dark");
+    document.documentElement.dataset.theme = theme;
+  } catch (_) {
+    document.documentElement.classList.add("dark");
+    document.documentElement.dataset.theme = "dark";
+  }
+})();
+`;
+
 export const Route = createRootRoute({
 	head: () => ({
 		meta: [
@@ -33,8 +53,12 @@ export const Route = createRootRoute({
 
 function RootDocument({ children }: { children: ReactNode }) {
 	return (
-		<html lang="en">
+		<html lang="en" suppressHydrationWarning>
 			<head>
+				<script
+					// biome-ignore lint/security/noDangerouslySetInnerHtml: Runs before first paint to prevent theme flash.
+					dangerouslySetInnerHTML={{ __html: themeScript }}
+				/>
 				<HeadContent />
 			</head>
 			<body>

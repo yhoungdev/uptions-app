@@ -164,3 +164,10 @@ export class ApiService {
 		return fallback || "Request failed";
 	}
 }
+
+
+export const uptionsRequest = new ApiService({
+    baseUrl: "",
+    headers: {},
+
+})

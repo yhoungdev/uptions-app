@@ -1,18 +1,16 @@
 import { ArrowRight, Wallet } from "lucide-react";
 import type { ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
-
-import { ThemeToggle } from "#/components/theme/theme-toggle.tsx";
 import { Typography } from "#/components/typography/typography.tsx";
 import { Button } from "#/components/ui/button.tsx";
 import { cn } from "#/lib/utils.ts";
 import {
-	homepageNavigationItems,
 	strategySteps,
 } from "#/packages/home/homepage-data.ts";
 import { AlertsPreview } from "./previews/alerts-preview.tsx";
 import { BuilderPreview } from "./previews/builder-preview.tsx";
 import { ExecutionPreview } from "./previews/execution-preview.tsx";
+import SiteHeader from "#/components/headers/index-header.tsx";
 
 export function Homepage() {
 	return (
@@ -24,52 +22,14 @@ export function Homepage() {
 	);
 }
 
-function SiteHeader() {
-	return (
-		<header className="sticky top-0 z-30 border-b border-[var(--app-border)] bg-[var(--app-surface)]/95 backdrop-blur">
-			<div className="mx-auto flex h-16 w-full max-w-[1440px] items-center justify-between px-5 sm:px-8">
-				<div className="flex items-center gap-9">
-					<a
-						aria-label="Uptions home"
-						className="text-xl font-extrabold tracking-[-0.02em] text-[var(--app-fg)] no-underline hover:text-[var(--app-fg)]"
-						href="/"
-					>
-						uptions
-					</a>
-					<nav
-						aria-label="Primary navigation"
-						className="hidden items-center gap-9 md:flex"
-					>
-						{homepageNavigationItems.map((item) => (
-							<a
-								className="text-sm font-medium text-[var(--app-muted-fg)] no-underline transition hover:text-[var(--app-fg)]"
-								href={item.href}
-								key={item.label}
-							>
-								{item.label}
-							</a>
-						))}
-					</nav>
-				</div>
 
-				<div className="flex items-center gap-3">
-					<ThemeToggle />
-					<Button className="h-9 rounded-none bg-[#ff5a1f] px-5 text-xs font-semibold text-white shadow-none hover:bg-[#e94c14]">
-						<Wallet className="size-3.5" />
-						Connect Wallet
-					</Button>
-				</div>
-			</div>
-		</header>
-	);
-}
 
 function HeroSection() {
 	return (
 		<section className="border-b border-[var(--app-border)] bg-[var(--app-surface)]">
 			<div className="mx-auto flex min-h-[490px] max-w-[1040px] flex-col items-center justify-center px-6 py-20 text-center">
 				<Typography
-					className="max-w-[710px] text-[var(--app-fg)]"
+					className="max-w-[710px] text-[var(--app-fg)] font-normal"
 					variant="hero"
 				>
 					Automate Prediction Market Strategies Easily.
@@ -83,17 +43,11 @@ function HeroSection() {
 					speed, and reliability, all within the our platform.
 				</Typography>
 				<div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-					<Button className="h-10 rounded-none bg-[#ff5a1f] px-6 text-xs font-semibold text-white shadow-none hover:bg-[#e94c14]">
-						<Wallet className="size-3.5" />
-						Connect Wallet
+					<Button className="rounded-none ">
+				
+						Join Waitlist
 					</Button>
-					<Button
-						className="h-10 rounded-none border-[var(--app-fg)] bg-[var(--app-surface)] px-6 text-xs font-semibold text-[var(--app-fg)] shadow-none hover:bg-[var(--app-fg)] hover:text-[var(--app-bg)]"
-						variant="outline"
-					>
-						View Demo
-						<ArrowRight className="size-3.5" />
-					</Button>
+				
 				</div>
 			</div>
 		</section>
