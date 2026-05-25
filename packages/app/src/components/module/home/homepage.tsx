@@ -1,4 +1,3 @@
-import { ArrowRight, Wallet } from "lucide-react";
 import type { ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
 import { Typography } from "#/components/typography/typography.tsx";
@@ -43,7 +42,7 @@ function HeroSection() {
 					speed, and reliability, all within the our platform.
 				</Typography>
 				<div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-					<Button className="rounded-none ">
+					<Button className="rounded-none text-white ">
 				
 						Join Waitlist
 					</Button>

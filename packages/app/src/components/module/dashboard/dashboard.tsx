@@ -4,7 +4,7 @@ import { AutomationSection } from "#/components/module/dashboard/automation-sect
 
 export function Dashboard() {
 	return (
-		<DashboardLayout>
+		<DashboardLayout contentClassName="grid gap-10 px-5 py-10 sm:px-8 lg:grid-cols-[minmax(0,1fr)_330px] lg:gap-8 lg:py-14">
 			<AutomationSection />
 			<AlertsSection />
 		</DashboardLayout>

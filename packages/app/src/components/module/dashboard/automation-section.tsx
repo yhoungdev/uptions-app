@@ -34,7 +34,7 @@ function AutomationCard({ automation }: { automation: Automation }) {
 	const isActive = automation.status === automationStatus.active;
 
 	return (
-		<article className="min-h-[170px] rounded-lg border border-[var(--app-border)] bg-[var(--app-card)] p-5">
+		<article className="min-h-[170px] rounded-0 border border-[var(--app-border)] bg-[var(--app-card)] p-5">
 			<div className="flex items-start justify-between gap-4">
 				<Typography
 					as="h3"

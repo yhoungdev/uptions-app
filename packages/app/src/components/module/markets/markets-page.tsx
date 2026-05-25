@@ -1,62 +1,61 @@
 import { Bolt, Search } from "lucide-react";
-
+import { DashboardLayout } from "#/components/layout/dashboard-layout";
 import { ViewToggle } from "#/components/module/app-shell/product-shell.tsx";
 import { Typography } from "#/components/typography/typography.tsx";
 import { cn } from "#/lib/utils.ts";
 import { marketCategories, markets } from "#/packages/markets/markets-data.ts";
-import { DashboardLayout } from "#/components/layout/dashboard-layout";
 
 export function MarketsPage() {
 	return (
-		<DashboardLayout>
-			<main className="min-h-screen bg-[#07080a] text-white">
-			<section className="border-b border-white/10 px-4 py-3">
-				<div className="flex items-start justify-between gap-4">
-					<div>
-						<Typography className="text-white" variant="h2">
-							Markets
-						</Typography>
-						<Typography className="mt-1 text-white/55" variant="bodySm">
-							Binary prediction markets - trade YES or NO outcomes
-						</Typography>
+		<DashboardLayout contentClassName="px-5 py-10 sm:px-8">
+			<div className="w-full text-white">
+				<section className="border-b border-white/10 pb-5">
+					<div className="flex items-start justify-between gap-4">
+						<div>
+							<Typography className="text-white" variant="h2">
+								Markets
+							</Typography>
+							<Typography className="mt-1 text-white/55" variant="bodySm">
+								Binary prediction markets - trade YES or NO outcomes
+							</Typography>
+						</div>
+						<ViewToggle />
 					</div>
-					<ViewToggle />
-				</div>
 
-				<div className="mt-5 flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
-					<label className="flex h-10 w-full max-w-[360px] items-center gap-3 text-white/55">
-						<Search className="size-5" />
-						<input
-							className="min-w-0 flex-1 bg-transparent text-base text-white outline-none placeholder:text-white/55"
-							placeholder="Search markets..."
-							type="search"
-						/>
-					</label>
-					<div className="flex flex-wrap gap-3">
-						{marketCategories.map((category) => (
-							<button
-								className={cn(
-									"h-9 rounded-md px-4 text-sm font-medium",
-									category === "All"
-										? "bg-white text-black"
-										: "bg-transparent text-white hover:bg-white/8",
-								)}
-								key={category}
-								type="button"
-							>
-								{category}
-							</button>
-						))}
+					<div className="mt-5 flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+						<label className="flex h-10 w-full max-w-[360px] items-center gap-3 text-white/55">
+							<Search className="size-5" />
+							<input
+								className="min-w-0 flex-1 bg-transparent text-base text-white outline-none placeholder:text-white/55"
+								placeholder="Search markets..."
+								type="search"
+							/>
+						</label>
+						<div className="flex flex-wrap gap-3">
+							{marketCategories.map((category) => (
+								<button
+									className={cn(
+										"h-9 rounded-md px-4 text-sm font-medium",
+										category === "All"
+											? "bg-white text-black"
+											: "bg-transparent text-white hover:bg-white/8",
+									)}
+									key={category}
+									type="button"
+								>
+									{category}
+								</button>
+							))}
+						</div>
 					</div>
-				</div>
-			</section>
+				</section>
 
-			<section className="grid gap-3 px-4 py-5 md:grid-cols-2 xl:grid-cols-3">
-				{markets.map((market) => (
-					<MarketCard key={market.id} market={market} />
-				))}
-			</section>
-		</main>
+				<section className="grid gap-3 py-5 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+					{markets.map((market) => (
+						<MarketCard key={market.id} market={market} />
+					))}
+				</section>
+			</div>
 		</DashboardLayout>
 	);
 }
@@ -65,7 +64,7 @@ type Market = (typeof markets)[number];
 
 function MarketCard({ market }: { market: Market }) {
 	return (
-		<article className="rounded-lg border border-white/10 bg-[#151515] p-4">
+		<article className=" border border-white/10 bg-[#151515] p-4">
 			<div className="flex items-start justify-between gap-4">
 				<div>
 					<span className="rounded-md border border-white/10 bg-white/[0.02] px-2 py-0.5 text-sm text-white">
@@ -118,12 +117,13 @@ function OutcomeCard({
 	return (
 		<div
 			className={cn(
-				"rounded-md border p-3",
+				" border p-3",
 				tone === "yes"
 					? "border-[#00d66f]/45 bg-[#00d66f]/8"
 					: "border-[#ff3b46]/45 bg-[#ff3b46]/10",
 			)}
 		>
+			
 			<Typography className="text-white/55" variant="caption">
 				{label}
 			</Typography>
