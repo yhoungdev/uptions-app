@@ -1,11 +1,11 @@
 import { Plus } from "lucide-react";
 
-import { Typography } from "#/components/typography/typography.tsx";
-import { cn } from "#/lib/utils.ts";
+import { Typography } from "@/components/typography/typography.tsx";
+import { cn } from "@/lib/utils.ts";
 import {
 	automationStatus,
 	automations,
-} from "#/packages/dashboard/dashboard-data.ts";
+} from "@/packages/dashboard/dashboard-data.ts";
 
 type Automation = (typeof automations)[number];
 
@@ -49,8 +49,8 @@ function AutomationCard({ automation }: { automation: Automation }) {
 			<div className="mt-5 border-b border-[var(--app-border)] pb-5">
 				<span
 					className={cn(
-						"inline-flex h-6 items-center px-3 text-xs font-semibold text-black",
-						isActive ? "bg-[#1ecb63]" : "bg-[#13b85d]",
+						"inline-flex h-6 items-center px-3 text-xs font-semibold text-success-foreground",
+						isActive ? "bg-success" : "bg-success/80",
 					)}
 				>
 					{automation.status}
@@ -86,13 +86,13 @@ function AutomationToggle({ enabled }: { enabled: boolean }) {
 	return (
 		<span
 			className={cn(
-				"mt-1 flex h-3.5 w-6 items-center rounded-full px-0.5",
+				"mt-1 flex h-3.5 w-6 items-center  px-0.5",
 				enabled
 					? "justify-end bg-primary"
 					: "justify-start bg-[var(--app-muted)]",
 			)}
 		>
-			<span className="size-2 rounded-full bg-[var(--dashboard-bg)]" />
+			<span className="size-2  bg-[var(--dashboard-bg)]" />
 		</span>
 	);
 }
@@ -100,7 +100,7 @@ function AutomationToggle({ enabled }: { enabled: boolean }) {
 function NewAutomationCard() {
 	return (
 		<a
-			className="flex min-h-[170px] flex-col items-center justify-center rounded-lg border border-[var(--app-border)] bg-[var(--app-card)] p-5 text-center transition hover:border-primary hover:bg-[var(--app-muted)]"
+			className="flex min-h-[170px] flex-col items-center justify-center  border border-[var(--app-border)] bg-[var(--app-card)] p-5 text-center transition hover:border-primary hover:bg-[var(--app-muted)]"
 			href="/builder"
 		>
 			<Plus className="size-8 text-primary" />

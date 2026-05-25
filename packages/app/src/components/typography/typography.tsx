@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef, ElementType, ReactNode } from "react";
 
-import { cn } from "#/lib/utils.ts";
+import { cn } from "@/lib/utils.ts";
 
 const typographyVariants = {
 	hero: "text-[clamp(2.5rem,7vw,4.75rem)] font-semibold leading-[0.99] tracking-[-0.065em]",

@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 
-import { useTheme } from "#/components/theme/theme-provider.tsx";
+import { useTheme } from "@/components/theme/theme-provider.tsx";
 
 function Logo() {
 	const { theme } = useTheme();

@@ -3,7 +3,7 @@ import { createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 import type { ReactNode } from "react";
 
-import { ThemeProvider } from "#/components/theme/theme-provider.tsx";
+import { ThemeProvider } from "@/components/theme/theme-provider.tsx";
 
 import appCss from "../styles.css?url";
 

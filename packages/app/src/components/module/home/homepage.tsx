@@ -1,15 +1,13 @@
 import type { ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
-import { Typography } from "#/components/typography/typography.tsx";
-import { Button } from "#/components/ui/button.tsx";
-import { cn } from "#/lib/utils.ts";
-import {
-	strategySteps,
-} from "#/packages/home/homepage-data.ts";
+import SiteHeader from "@/components/headers/index-header.tsx";
+import { Typography } from "@/components/typography/typography.tsx";
+import { Button } from "@/components/ui/button.tsx";
+import { cn } from "@/lib/utils.ts";
+import { strategySteps } from "@/packages/home/homepage-data.ts";
 import { AlertsPreview } from "./previews/alerts-preview.tsx";
 import { BuilderPreview } from "./previews/builder-preview.tsx";
 import { ExecutionPreview } from "./previews/execution-preview.tsx";
-import SiteHeader from "#/components/headers/index-header.tsx";
 
 export function Homepage() {
 	return (
@@ -20,8 +18,6 @@ export function Homepage() {
 		</main>
 	);
 }
-
-
 
 function HeroSection() {
 	return (
@@ -42,11 +38,7 @@ function HeroSection() {
 					speed, and reliability, all within the our platform.
 				</Typography>
 				<div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-					<Button className="rounded-none text-white ">
-				
-						Join Waitlist
-					</Button>
-				
+					<Button>Join Waitlist</Button>
 				</div>
 			</div>
 		</section>
@@ -117,10 +109,10 @@ function StepList({ activeStep }: StepListProps) {
 						<div className="flex flex-col items-center">
 							<span
 								className={[
-									"grid size-8 place-items-center rounded-full text-xs font-bold transition",
+									"grid size-8 place-items-center  text-xs font-bold transition",
 									isActive
-										? "bg-[#ff5a1f] text-white"
-										: "bg-white text-[#b6b2ac]",
+										? "bg-primary text-primary-foreground"
+										: "bg-app-inverse text-app-muted-fg",
 								].join(" ")}
 							>
 								{step.id}
@@ -129,7 +121,7 @@ function StepList({ activeStep }: StepListProps) {
 								<span
 									className={[
 										"mt-4 h-16 w-px transition",
-										isActive ? "bg-[#ff5a1f]" : "bg-white",
+										isActive ? "bg-primary" : "bg-app-inverse",
 									].join(" ")}
 								/>
 							) : null}

@@ -1,13 +1,13 @@
 import type { NodeProps } from "@xyflow/react";
 import { Handle, Position } from "@xyflow/react";
 
-import { Typography } from "#/components/typography/typography.tsx";
-import { cn } from "#/lib/utils.ts";
-import type { WorkflowBlock } from "#/packages/builder/builder-data.ts";
+import { Typography } from "@/components/typography/typography.tsx";
+import { cn } from "@/lib/utils.ts";
+import type { WorkflowBlock } from "@/packages/builder/builder-data.ts";
 import {
 	workflowBlockKind,
 	workflowBlockTone,
-} from "#/packages/builder/builder-data.ts";
+} from "@/packages/builder/builder-data.ts";
 
 type WorkflowNodeData = WorkflowBlock;
 
@@ -24,28 +24,20 @@ export function WorkflowNode({ data, selected }: WorkflowNodeProps) {
 	return (
 		<div
 			className={cn(
-				"min-h-[82px] w-[320px] overflow-hidden rounded-lg border bg-[#111111]/95 shadow-[0_22px_60px_rgba(0,0,0,0.35)]",
-				selected && "ring-2 ring-[#2f80ff]",
+				"min-h-[82px] w-[320px] overflow-hidden border bg-builder-panel/95",
+				tone.card,
+				selected && "ring-2 ring-info",
 			)}
-			style={{
-				backgroundColor: tone.glow,
-				borderColor: tone.border,
-			}}
 		>
 			{hasTarget ? (
 				<Handle
-					className="!size-3 !border-2 !border-white !bg-[#0a0b0d]"
+					className="!size-3 !border-2 !border-app-inverse !bg-dashboard-bg"
 					position={Position.Left}
 					type="target"
 				/>
 			) : null}
 			<div className="flex items-center gap-3 border-b border-white/10 px-4 py-3">
-				<span
-					className={cn(
-						"grid size-5 place-items-center rounded-full",
-						tone.icon,
-					)}
-				>
+				<span className={cn("grid size-5 place-items-center ", tone.icon)}>
 					<Icon className="size-3.5" />
 				</span>
 				<div className="min-w-0">
@@ -57,7 +49,7 @@ export function WorkflowNode({ data, selected }: WorkflowNodeProps) {
 					</Typography>
 				</div>
 				{data.kind === workflowBlockKind.trigger ? (
-					<span className="ml-auto size-1.5 rounded-full bg-[#19d15f]" />
+					<span className="ml-auto size-1.5 bg-success" />
 				) : null}
 			</div>
 			<Typography className="px-4 py-3 text-white/65" variant="caption">
@@ -65,7 +57,7 @@ export function WorkflowNode({ data, selected }: WorkflowNodeProps) {
 			</Typography>
 			{hasSource ? (
 				<Handle
-					className="!size-3 !border-2 !border-white !bg-[#2f80ff]"
+					className="!size-3 !border-2 !border-app-inverse !bg-info"
 					position={Position.Right}
 					type="source"
 				/>

@@ -1,3 +1,3 @@
-import { Homepage } from "#/components/module/home/homepage.tsx";
+import { Homepage } from "@/components/module/home/homepage.tsx";
 
 export default Homepage;

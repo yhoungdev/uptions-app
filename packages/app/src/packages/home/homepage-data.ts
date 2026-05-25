@@ -83,7 +83,7 @@ export const builderNodes = [
 		y: "39%",
 		className: "w-[54px]",
 		icon: Activity,
-		iconClassName: "bg-[#9fc94b] text-white",
+		iconClassName: "bg-success text-success-foreground",
 	},
 	{
 		eyebrow: "Price Change",
@@ -92,16 +92,16 @@ export const builderNodes = [
 		y: "34%",
 		className: "w-[230px]",
 		icon: CircleDollarSign,
-		iconClassName: "bg-[#2563eb] text-white",
+		iconClassName: "bg-info text-info-foreground",
 	},
 	{
 		eyebrow: "Trigger",
 		label: "Select the event that starts Uptions",
 		x: "53%",
 		y: "52%",
-		className: "w-[250px] border-[#ff5a1f]/75 bg-white",
+		className: "w-[250px] border-primary/75 bg-app-inverse",
 		icon: Bell,
-		iconClassName: "bg-[#ff5a1f] text-white",
+		iconClassName: "bg-primary text-primary-foreground",
 	},
 ] as const;
 

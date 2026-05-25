@@ -1,8 +1,8 @@
 import { DraftingCompass } from "lucide-react";
 
-import { Typography } from "#/components/typography/typography.tsx";
-import type { WorkflowBlock } from "#/packages/builder/builder-data.ts";
-import { workflowBlockTone } from "#/packages/builder/builder-data.ts";
+import { Typography } from "@/components/typography/typography.tsx";
+import type { WorkflowBlock } from "@/packages/builder/builder-data.ts";
+import { workflowBlockTone } from "@/packages/builder/builder-data.ts";
 
 type InspectorPanelProps = {
 	selectedBlock?: WorkflowBlock;
@@ -10,13 +10,13 @@ type InspectorPanelProps = {
 
 export function InspectorPanel({ selectedBlock }: InspectorPanelProps) {
 	return (
-		<aside className="hidden min-h-0 w-[300px] border-l border-white/10 bg-[#111111] xl:flex xl:flex-col">
+		<aside className="hidden min-h-0 w-[300px] border-l border-white/10 bg-builder-panel xl:flex xl:flex-col">
 			{selectedBlock ? (
 				<div className="p-6">
 					<Typography className="text-white" variant="h3">
 						Configure Node
 					</Typography>
-					<div className="mt-8 rounded-xl border border-white/10 bg-white/[0.03] p-4">
+					<div className="mt-8  border border-white/10 bg-white/[0.03] p-4">
 						<Typography className="text-white/45" variant="caption">
 							{workflowBlockTone[selectedBlock.kind].label}
 						</Typography>
@@ -30,7 +30,7 @@ export function InspectorPanel({ selectedBlock }: InspectorPanelProps) {
 							<Typography className="text-white/45" variant="caption">
 								Value
 							</Typography>
-							<div className="mt-2 rounded-lg border border-white/10 bg-black/30 px-3 py-3 text-sm text-white">
+							<div className="mt-2  border border-white/10 bg-black/30 px-3 py-3 text-sm text-white">
 								{selectedBlock.value}
 							</div>
 						</div>

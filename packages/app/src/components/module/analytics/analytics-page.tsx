@@ -1,9 +1,8 @@
-import { ChevronDown, Info } from "lucide-react";
+import { Info } from "lucide-react";
 import type { ReactNode } from "react";
-
-import { ProductShell } from "#/components/module/app-shell/product-shell.tsx";
-import { Typography } from "#/components/typography/typography.tsx";
-import { cn } from "#/lib/utils.ts";
+import { DashboardLayout } from "@/components/layout/dashboard-layout";
+import { Typography } from "@/components/typography/typography.tsx";
+import { cn } from "@/lib/utils.ts";
 import {
 	analyticsMetrics,
 	dailyActivity,
@@ -11,8 +10,7 @@ import {
 	portfolioPath,
 	riskMetrics,
 	workflowPerformance,
-} from "#/packages/analytics/analytics-data.ts";
-import { DashboardLayout } from "#/components/layout/dashboard-layout";
+} from "@/packages/analytics/analytics-data.ts";
 
 export function AnalyticsPage() {
 	return (
@@ -39,10 +37,7 @@ function Panel({
 }) {
 	return (
 		<section
-			className={cn(
-				"rounded-lg border border-white/10 bg-[#151515] p-4 sm:p-5",
-				className,
-			)}
+			className={cn("border border-white/10 bg-app-card p-4 sm:p-5", className)}
 		>
 			{children}
 		</section>
@@ -100,9 +95,9 @@ function PortfolioCard() {
 			</div>
 
 			<div className="mt-10 flex gap-5 text-sm">
-				<Legend color="#00d66f" label="Buy" />
-				<Legend color="#ff3b46" label="Sell" />
-				<Legend color="#2f80ff" label="Alert" />
+				<Legend label="Buy" tone="bg-success" />
+				<Legend label="Sell" tone="bg-danger" />
+				<Legend label="Alert" tone="bg-info" />
 			</div>
 
 			<div className="mt-6 overflow-hidden">
@@ -116,15 +111,16 @@ function PortfolioCard() {
 				>
 					<defs>
 						<linearGradient id="portfolio-fill" x1="0" x2="0" y1="0" y2="1">
-							<stop offset="0%" stopColor="#2f80ff" stopOpacity="0.24" />
-							<stop offset="100%" stopColor="#2f80ff" stopOpacity="0" />
+							<stop offset="0%" stopColor="var(--info)" stopOpacity="0.24" />
+							<stop offset="100%" stopColor="var(--info)" stopOpacity="0" />
 						</linearGradient>
 					</defs>
 					{[0, 1, 2, 3].map((line) => (
 						<path
 							d={`M 45 ${55 + line * 48} H 1485`}
 							key={line}
-							stroke="rgba(255,255,255,0.2)"
+							className="text-white/20"
+							stroke="currentColor"
 							strokeDasharray="4 5"
 						/>
 					))}
@@ -132,7 +128,8 @@ function PortfolioCard() {
 						<path
 							d={`M ${45 + line * 240} 55 V 245`}
 							key={line}
-							stroke="rgba(255,255,255,0.16)"
+							className="text-white/16"
+							stroke="currentColor"
 							strokeDasharray="4 5"
 						/>
 					))}
@@ -140,20 +137,27 @@ function PortfolioCard() {
 						d={`${portfolioPath} L 1485 245 L 45 245 Z`}
 						fill="url(#portfolio-fill)"
 					/>
-					<path d={portfolioPath} stroke="#2f80ff" strokeWidth="2.4" />
+					<path
+						className="text-info"
+						d={portfolioPath}
+						stroke="currentColor"
+						strokeWidth="2.4"
+					/>
 					{portfolioMarkers.map((marker) => (
 						<g key={marker.label}>
 							<circle
 								cx={`${marker.x}%`}
 								cy={`${marker.y}%`}
-								fill={marker.color}
+								className={marker.tone}
+								fill="currentColor"
 								r="6"
-								stroke="white"
+								stroke="currentColor"
 								strokeOpacity="0.65"
 								strokeWidth="2"
 							/>
 							<text
-								fill="white"
+								className="text-white"
+								fill="currentColor"
 								fontSize="11"
 								textAnchor="middle"
 								x={`${marker.x}%`}
@@ -163,8 +167,18 @@ function PortfolioCard() {
 							</text>
 						</g>
 					))}
-					<path d="M 45 245 H 1485" stroke="white" strokeOpacity="0.8" />
-					<path d="M 45 55 V 245" stroke="white" strokeOpacity="0.8" />
+					<path
+						className="text-white"
+						d="M 45 245 H 1485"
+						stroke="currentColor"
+						strokeOpacity="0.8"
+					/>
+					<path
+						className="text-white"
+						d="M 45 55 V 245"
+						stroke="currentColor"
+						strokeOpacity="0.8"
+					/>
 				</svg>
 				<div className="grid grid-cols-7 text-center text-sm text-white">
 					{["Jan 1", "Jan 2", "Jan 3", "Jan 4", "Jan 5", "Jan 6", "Jan 7"].map(
@@ -178,10 +192,10 @@ function PortfolioCard() {
 	);
 }
 
-function Legend({ color, label }: { color: string; label: string }) {
+function Legend({ label, tone }: { label: string; tone: string }) {
 	return (
 		<span className="flex items-center gap-2 text-white/55">
-			<span className="size-3 rounded-full" style={{ background: color }} />
+			<span className={cn("size-3", tone)} />
 			{label}
 		</span>
 	);
@@ -201,7 +215,7 @@ function WorkflowPerformance() {
 			<div className="mt-8 grid gap-2">
 				{workflowPerformance.map((item) => (
 					<div
-						className="flex items-center justify-between rounded-md border border-white/8 bg-white/[0.01] px-3 py-3"
+						className="flex items-center justify-between  border border-white/8 bg-white/[0.01] px-3 py-3"
 						key={item.name}
 					>
 						<div>
@@ -210,7 +224,7 @@ function WorkflowPerformance() {
 									{item.name}
 								</Typography>
 								{item.status ? (
-									<span className="rounded bg-[#ff3038]/15 px-1.5 text-xs text-[#ff3038]">
+									<span className="bg-danger/15 px-1.5 text-xs text-danger">
 										{item.status}
 									</span>
 								) : null}
@@ -219,16 +233,14 @@ function WorkflowPerformance() {
 								{item.trades} <span className="px-2">•</span> {item.winRate}{" "}
 								<span className="px-2">•</span>{" "}
 								<span
-									className={
-										item.positive ? "text-[#00d66f]" : "text-[#ff3038]"
-									}
+									className={item.positive ? "text-success" : "text-danger"}
 								>
 									{item.average}
 								</span>
 							</Typography>
 						</div>
 						<Typography
-							className={item.positive ? "text-[#00d66f]" : "text-[#ff3038]"}
+							className={item.positive ? "text-success" : "text-danger"}
 							variant="label"
 						>
 							{item.return}
@@ -247,14 +259,14 @@ function DailyActivity() {
 				Daily Activity
 			</Typography>
 			<div className="mt-10 h-[245px] px-8">
-				<div className="flex h-full items-end gap-7 border-b border-l border-white/80 bg-[linear-gradient(rgba(255,255,255,.18)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.18)_1px,transparent_1px)] bg-[length:100%_25%,16.66%_100%] px-2">
+				<div className="flex h-full items-end gap-7 border-b border-l border-white/80 bg-[linear-gradient(var(--app-border)_1px,transparent_1px),linear-gradient(90deg,var(--app-border)_1px,transparent_1px)] bg-[length:100%_25%,16.66%_100%] px-2">
 					{dailyActivity.map((item) => (
 						<div
 							className="flex flex-1 flex-col items-center gap-2"
 							key={item.day}
 						>
 							<div
-								className="w-full bg-[#8759f4]"
+								className="w-full bg-violet"
 								style={{ height: `${(item.value / 20) * 100}%` }}
 							/>
 							<span className="-mb-6 text-sm text-white">{item.day}</span>
@@ -263,8 +275,8 @@ function DailyActivity() {
 				</div>
 			</div>
 			<div className="mt-10 flex justify-center gap-5 text-sm text-white/55">
-				<Legend color="#2f80ff" label="Automated" />
-				<Legend color="#a855f7" label="Manual" />
+				<Legend label="Automated" tone="bg-info" />
+				<Legend label="Manual" tone="bg-violet" />
 			</div>
 		</Panel>
 	);
@@ -288,10 +300,10 @@ function RiskAnalysis() {
 							</Typography>
 							<span
 								className={cn(
-									"rounded-md border px-2 text-xs",
+									" border px-2 text-xs",
 									metric.status === "excellent"
-										? "border-[#00d66f]/30 bg-[#00d66f]/10 text-[#00d66f]"
-										: "border-[#2f80ff]/30 bg-[#2f80ff]/10 text-[#2f80ff]",
+										? "border-success/30 bg-success/10 text-success"
+										: "border-info/30 bg-info/10 text-info",
 								)}
 							>
 								{metric.status}
@@ -303,9 +315,9 @@ function RiskAnalysis() {
 						<Typography className="text-white/55" variant="bodySm">
 							{metric.target}
 						</Typography>
-						<div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/5">
+						<div className="mt-3 h-1.5 overflow-hidden  bg-white/5">
 							<div
-								className={cn("h-full rounded-full", metric.tone)}
+								className={cn("h-full ", metric.tone)}
 								style={{ width: `${metric.progress}%` }}
 							/>
 						</div>

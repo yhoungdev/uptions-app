@@ -1,9 +1,9 @@
 import { ArrowUpRight, XCircle } from "lucide-react";
 
-import { Typography } from "#/components/typography/typography.tsx";
-import { Button } from "#/components/ui/button.tsx";
-import { cn } from "#/lib/utils.ts";
-import { recentAlerts } from "#/packages/dashboard/dashboard-data.ts";
+import { Typography } from "@/components/typography/typography.tsx";
+import { Button } from "@/components/ui/button.tsx";
+import { cn } from "@/lib/utils.ts";
+import { recentAlerts } from "@/packages/dashboard/dashboard-data.ts";
 
 type RecentAlert = (typeof recentAlerts)[number];
 type AlertActionTone = "default" | "muted" | "primary";
@@ -31,7 +31,7 @@ export function AlertsSection() {
 
 function AlertCard({ alert }: { alert: RecentAlert }) {
 	return (
-		<article className="rounded-lg border border-[var(--app-border)] bg-[var(--app-card)] p-5">
+		<article className=" border border-[var(--app-border)] bg-[var(--app-card)] p-5">
 			<div className="flex items-start justify-between gap-4">
 				<div>
 					<Typography className="text-[var(--app-fg)]" variant="label">
@@ -75,11 +75,13 @@ function AlertAction({
 	return (
 		<Button
 			className={cn(
-				"h-8 rounded-full px-3 text-xs font-semibold shadow-none",
-				tone === "primary" && "bg-primary text-white hover:bg-primary/90",
-				tone === "default" && "bg-white text-black hover:bg-white/90",
+				"h-8  px-3 text-xs font-semibold ",
+				tone === "primary" &&
+					"bg-primary text-primary-foreground hover:bg-primary/90",
+				tone === "default" &&
+					"bg-app-inverse text-app-inverse-fg hover:bg-app-inverse/90",
 				tone === "muted" &&
-					"bg-[#2a2d31] text-white hover:bg-[#35393e] dark:bg-[#2a2d31]",
+					"bg-secondary text-secondary-foreground hover:bg-secondary/80",
 			)}
 		>
 			{tone === "primary" ? <ArrowUpRight className="size-3" /> : null}

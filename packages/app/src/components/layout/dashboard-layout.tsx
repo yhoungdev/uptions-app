@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
-import DashboardHeader from "#/components/headers/dashboard-header";
-import { cn } from "#/lib/utils.ts";
+import DashboardHeader from "@/components/headers/dashboard-header";
+import { cn } from "@/lib/utils.ts";
 
 type DashboardLayoutProps = {
 	children: ReactNode;

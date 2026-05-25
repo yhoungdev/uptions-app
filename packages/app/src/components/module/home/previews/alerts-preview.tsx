@@ -1,5 +1,5 @@
-import { cn } from "#/lib/utils.ts";
-import { alertItems } from "#/packages/home/homepage-data.ts";
+import { cn } from "@/lib/utils.ts";
+import { alertItems } from "@/packages/home/homepage-data.ts";
 
 const toneClasses = {
 	blue: "border-blue-200 bg-blue-50 text-blue-500",
@@ -12,7 +12,7 @@ const toneClasses = {
 export function AlertsPreview() {
 	return (
 		<div className="flex items-center justify-center md:min-h-[500px]">
-			<div className="w-full max-w-[540px] rounded-[48px] border border-black/5 bg-white px-9 py-10 shadow-[0_30px_80px_rgba(0,0,0,0.06)]">
+			<div className="w-full max-w-[540px] rounded-[48px] border border-black/5 bg-app-inverse px-9 py-10">
 				<ul className="divide-y divide-black/[0.06]">
 					{alertItems.map((item) => {
 						const Icon = item.icon;
@@ -24,7 +24,7 @@ export function AlertsPreview() {
 							>
 								<span
 									className={cn(
-										"grid size-11 shrink-0 place-items-center rounded-full border",
+										"grid size-11 shrink-0 place-items-center  border",
 										toneClasses[item.tone],
 									)}
 								>
@@ -35,16 +35,16 @@ export function AlertsPreview() {
 										<h3 className="truncate text-base font-bold tracking-[-0.02em] text-black">
 											{item.title}
 										</h3>
-										<time className="shrink-0 text-sm font-medium text-[#7f858c]">
+										<time className="shrink-0 text-sm font-medium text-app-muted-fg">
 											{item.time}
 										</time>
 									</div>
-									<p className="mt-1 truncate text-sm leading-6 text-[#6f7782]">
+									<p className="mt-1 truncate text-sm leading-6 text-app-muted-fg">
 										{item.description}
 									</p>
 								</div>
 								{item.active ? (
-									<span className="size-3 shrink-0 rounded-full bg-[#00c853]" />
+									<span className="size-3 shrink-0 bg-success" />
 								) : null}
 							</li>
 						);

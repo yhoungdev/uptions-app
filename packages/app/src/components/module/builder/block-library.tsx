@@ -1,23 +1,23 @@
 import { GripVertical, Search } from "lucide-react";
 
-import { Typography } from "#/components/typography/typography.tsx";
-import { cn } from "#/lib/utils.ts";
-import type { WorkflowBlock } from "#/packages/builder/builder-data.ts";
+import { Typography } from "@/components/typography/typography.tsx";
+import { cn } from "@/lib/utils.ts";
+import type { WorkflowBlock } from "@/packages/builder/builder-data.ts";
 import {
 	workflowBlockGroups,
 	workflowBlockTone,
-} from "#/packages/builder/builder-data.ts";
+} from "@/packages/builder/builder-data.ts";
 
 export function BlockLibrary() {
 	return (
-		<aside className="flex min-h-0 w-full flex-col border-r border-white/10 bg-[#111111] lg:w-[294px]">
+		<aside className="flex min-h-0 w-full flex-col border-r border-white/10 bg-builder-panel lg:w-[294px]">
 			<div className="flex h-[68px] shrink-0 items-center border-b border-white/10 px-4">
 				<Typography className="text-white" variant="h3">
 					Blocks
 				</Typography>
 			</div>
 			<div className="min-h-0 flex-1 overflow-y-auto px-4 py-6">
-				<label className="flex h-12 items-center gap-3 rounded-xl bg-white/8 px-4 text-white/55">
+				<label className="flex h-12 items-center gap-3  bg-white/8 px-4 text-white/55">
 					<Search className="size-4" />
 					<input
 						className="min-w-0 flex-1 bg-transparent text-sm text-white outline-none placeholder:text-white/70"
@@ -51,24 +51,20 @@ function BlockLibraryItem({ block }: { block: WorkflowBlock }) {
 
 	return (
 		<button
-			className="flex min-h-[54px] cursor-grab items-center gap-3 rounded-lg border bg-transparent px-3 py-3 text-left active:cursor-grabbing"
+			className={cn(
+				"flex min-h-[54px] cursor-grab items-center gap-3 border px-3 py-3 text-left active:cursor-grabbing",
+				tone.card,
+			)}
 			draggable
 			onDragStart={(event) => {
 				event.dataTransfer.setData("application/uptions-block", block.id);
 				event.dataTransfer.effectAllowed = "move";
 			}}
-			style={{
-				backgroundColor: tone.glow,
-				borderColor: tone.border,
-			}}
 			type="button"
 		>
 			<GripVertical className="size-4 shrink-0 text-white/35" />
 			<span
-				className={cn(
-					"grid size-5 shrink-0 place-items-center rounded-full",
-					tone.icon,
-				)}
+				className={cn("grid size-5 shrink-0 place-items-center ", tone.icon)}
 			>
 				<Icon className="size-3.5" />
 			</span>

@@ -1,6 +1,6 @@
 import { Moon, Sun } from "lucide-react";
 
-import { Button } from "#/components/ui/button.tsx";
+import { Button } from "@/components/ui/button.tsx";
 
 import { useTheme } from "./theme-provider.tsx";
 
@@ -11,7 +11,7 @@ export function ThemeToggle() {
 	return (
 		<Button
 			aria-label="Toggle color mode"
-			className="size-9 rounded-full border-0 bg-transparent text-[var(--app-fg)] hover:bg-[var(--app-muted)]"
+			className="size-9  border-0 bg-transparent text-[var(--app-fg)] hover:bg-[var(--app-muted)]"
 			onClick={toggleTheme}
 			size="icon"
 			type="button"

@@ -14,12 +14,12 @@ import {
 import type { DragEvent } from "react";
 import { useCallback, useMemo, useRef, useState } from "react";
 
-import type { WorkflowBlock } from "#/packages/builder/builder-data.ts";
+import type { WorkflowBlock } from "@/packages/builder/builder-data.ts";
 import {
 	initialWorkflowEdges,
 	initialWorkflowNodes,
 	workflowBlocks,
-} from "#/packages/builder/builder-data.ts";
+} from "@/packages/builder/builder-data.ts";
 
 import { WorkflowNode } from "./workflow-node.tsx";
 
@@ -48,7 +48,7 @@ export function WorkflowCanvas({ onSelectBlock }: WorkflowCanvasProps) {
 					{
 						...connection,
 						type: "smoothstep",
-						style: { stroke: "#ff5a1f", strokeWidth: 2 },
+						style: { stroke: "var(--primary)", strokeWidth: 2 },
 					},
 					currentEdges,
 				),
@@ -92,7 +92,7 @@ export function WorkflowCanvas({ onSelectBlock }: WorkflowCanvasProps) {
 	return (
 		<div
 			aria-label="Workflow canvas"
-			className="min-h-0 flex-1 bg-[#06070a]"
+			className="min-h-0 flex-1 bg-builder-bg"
 			onDragOver={onDragOver}
 			onDrop={onDrop}
 			ref={wrapperRef}
@@ -115,7 +115,12 @@ export function WorkflowCanvas({ onSelectBlock }: WorkflowCanvasProps) {
 				onPaneClick={() => onSelectBlock(undefined)}
 				proOptions={{ hideAttribution: true }}
 			>
-				<Background bgColor="#06070a" color="#15171c" gap={16} size={1} />
+				<Background
+					bgColor="var(--builder-bg)"
+					color="var(--builder-panel)"
+					gap={16}
+					size={1}
+				/>
 			</ReactFlow>
 		</div>
 	);

@@ -1,5 +1,5 @@
 import { Wallet } from "lucide-react";
-import { homepageNavigationItems } from "#/packages/home/homepage-data";
+import { homepageNavigationItems } from "@/packages/home/homepage-data";
 import Logo from "../misc/logo";
 import { ThemeToggle } from "../theme/theme-toggle";
 import { Button } from "../ui/button";
@@ -28,7 +28,7 @@ function SiteHeader() {
 
 				<div className="flex items-center gap-3">
 					<ThemeToggle />
-					<Button className="h-9 rounded-none bg-[#ff5a1f] px-5 text-xs font-semibold text-white shadow-none hover:bg-[#e94c14]">
+					<Button className="h-9 bg-primary px-5 text-xs font-semibold text-primary-foreground hover:bg-primary/90">
 						<Wallet className="size-3.5" />
 						Connect Wallet
 					</Button>

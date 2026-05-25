@@ -18,21 +18,18 @@ export type WorkflowBlockKind =
 
 export const workflowBlockTone = {
 	[workflowBlockKind.trigger]: {
-		border: "#ff5a1f",
-		glow: "rgba(255, 90, 31, 0.14)",
-		icon: "bg-[#ff5a1f] text-white",
+		card: "border-primary bg-primary/15",
+		icon: "bg-primary text-primary-foreground",
 		label: "TRIGGER",
 	},
 	[workflowBlockKind.condition]: {
-		border: "#8b5cf6",
-		glow: "rgba(139, 92, 246, 0.14)",
-		icon: "bg-[#8b5cf6] text-white",
+		card: "border-violet bg-violet/15",
+		icon: "bg-violet text-violet-foreground",
 		label: "CONDITION",
 	},
 	[workflowBlockKind.action]: {
-		border: "#10b981",
-		glow: "rgba(16, 185, 129, 0.12)",
-		icon: "bg-[#10b981] text-white",
+		card: "border-success bg-success/15",
+		icon: "bg-success text-success-foreground",
 		label: "ACTION",
 	},
 } as const;
@@ -165,13 +162,13 @@ export const initialWorkflowEdges = [
 		source: "node-price-change",
 		target: "node-price-above",
 		type: "smoothstep",
-		style: { stroke: "#ff5a1f", strokeWidth: 2 },
+		style: { stroke: "var(--primary)", strokeWidth: 2 },
 	},
 	{
 		id: "edge-condition-action",
 		source: "node-price-above",
 		target: "node-buy",
 		type: "smoothstep",
-		style: { stroke: "#ff5a1f", strokeWidth: 2 },
+		style: { stroke: "var(--primary)", strokeWidth: 2 },
 	},
 ] as const;

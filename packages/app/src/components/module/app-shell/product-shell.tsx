@@ -1,9 +1,9 @@
 import { Bell, Command, Moon, Settings2 } from "lucide-react";
 import type { ReactNode } from "react";
 
-import { Typography } from "#/components/typography/typography.tsx";
-import { cn } from "#/lib/utils.ts";
-import { dashboardNavigationItems } from "#/packages/navigation/dashboard-navigation.ts";
+import { Typography } from "@/components/typography/typography.tsx";
+import { cn } from "@/lib/utils.ts";
+import { dashboardNavigationItems } from "@/packages/navigation/dashboard-navigation.ts";
 
 type ProductShellProps = {
 	active: string;
@@ -12,8 +12,8 @@ type ProductShellProps = {
 
 export function ProductShell({ active, children }: ProductShellProps) {
 	return (
-		<main className="min-h-screen bg-[#07080a] text-white">
-			<aside className="fixed inset-y-0 left-0 z-30 hidden w-[190px] border-r border-white/10 bg-[#131416] lg:flex lg:flex-col">
+		<main className="min-h-screen bg-dashboard-bg text-white">
+			<aside className="fixed inset-y-0 left-0 z-30 hidden w-[190px] border-r border-white/10 bg-app-card lg:flex lg:flex-col">
 				<div className="flex h-[54px] items-center gap-2 border-b border-white/10 px-3">
 					<span className="grid size-7 place-items-center rounded bg-white text-black">
 						<Command className="size-5" />
@@ -30,7 +30,7 @@ export function ProductShell({ active, children }: ProductShellProps) {
 						return (
 							<a
 								className={cn(
-									"flex h-9 items-center gap-3 rounded-md px-3 text-sm no-underline",
+									"flex h-9 items-center gap-3  px-3 text-sm no-underline",
 									isActive
 										? "bg-white/5 text-white"
 										: "text-white/58 hover:bg-white/5 hover:text-white",
@@ -57,15 +57,15 @@ export function ProductShell({ active, children }: ProductShellProps) {
 					</div>
 				</div>
 			</aside>
-			<header className="sticky top-0 z-20 flex h-[54px] items-center justify-end border-b border-white/10 bg-[#151515] px-4 lg:ml-[190px]">
+			<header className="sticky top-0 z-20 flex h-[54px] items-center justify-end border-b border-white/10 bg-app-card px-4 lg:ml-[190px]">
 				<div className="flex items-center gap-5">
-					<div className="hidden h-8 items-center gap-3 rounded-md border border-white/10 bg-[#111214] px-3 text-sm text-white/80 sm:flex">
-						<span className="size-2 rounded-full bg-[#00d66f]" />
+					<div className="hidden h-8 items-center gap-3  border border-white/10 bg-builder-panel px-3 text-sm text-white/80 sm:flex">
+						<span className="size-2  bg-success" />
 						0x742d...0bEb
 					</div>
 					<div className="relative">
 						<Bell className="size-5 text-white/70" />
-						<span className="absolute -right-2 -top-2 grid size-4 place-items-center rounded-full bg-white text-[10px] font-bold text-black">
+						<span className="absolute -right-2 -top-2 grid size-4 place-items-center  bg-white text-[10px] font-bold text-black">
 							2
 						</span>
 					</div>
@@ -78,7 +78,7 @@ export function ProductShell({ active, children }: ProductShellProps) {
 
 export function ViewToggle() {
 	return (
-		<div className="flex h-8 items-center rounded-lg bg-white/8 p-1">
+		<div className="flex h-8 items-center  bg-white/8 p-1">
 			<Settings2 className="size-5 rounded px-0.5 text-white/65" />
 			<div className="grid size-6 place-items-center rounded bg-white text-black">
 				<span className="grid size-3 grid-cols-2 gap-0.5">
