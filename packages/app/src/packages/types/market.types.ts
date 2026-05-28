@@ -1,0 +1,37 @@
+export type PolymarketMarket = {
+	id: string;
+	question?: string;
+	title?: string;
+	description?: string;
+	image?: string;
+	icon?: string;
+	feeType?: string;
+	active?: boolean;
+	closed?: boolean;
+	featured?: boolean;
+	bestAsk?: number;
+	bestBid?: number;
+	lastTradePrice?: number;
+	liquidity?: number | string;
+	liquidityNum?: number;
+	volume?: number | string;
+	volumeNum?: number;
+	volume24hr?: number;
+	oneDayPriceChange?: number;
+	oneHourPriceChange?: number;
+	oneWeekPriceChange?: number;
+	oneMonthPriceChange?: number;
+	outcomes?: string | string[];
+	outcomePrices?: string | string[];
+	slug?: string;
+};
+
+export type PolymarketMarketsQuery = {
+	active?: boolean;
+	archived?: boolean;
+	closed?: boolean;
+	id?: string;
+	limit?: number;
+	offset?: number;
+	slug?: string;
+};

@@ -18,8 +18,6 @@ export class ApiService {
 		this.timeoutMs = config.timeoutMs ?? 30_000;
 	}
 
-   
-
 	GET<TResponse>(path: string, options?: RequestOptions) {
 		return this.request<TResponse>(path, "GET", options);
 	}
@@ -165,9 +163,7 @@ export class ApiService {
 	}
 }
 
-
 export const uptionsRequest = new ApiService({
-    baseUrl: "",
-    headers: {},
-
-})
+	baseUrl: import.meta.env.VITE_API_BASE_URL ?? "",
+	headers: {},
+});
