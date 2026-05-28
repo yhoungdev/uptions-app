@@ -4,6 +4,7 @@ import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 import type { ReactNode } from "react";
 
 import { ThemeProvider } from "@/components/theme/theme-provider.tsx";
+import { QueryProvider } from "@/providers/query-provider.tsx";
 
 import appCss from "../styles.css?url";
 
@@ -62,7 +63,9 @@ function RootDocument({ children }: { children: ReactNode }) {
 				<HeadContent />
 			</head>
 			<body>
-				<ThemeProvider>{children}</ThemeProvider>
+				<QueryProvider>
+					<ThemeProvider>{children}</ThemeProvider>
+				</QueryProvider>
 				<TanStackDevtools
 					config={{
 						position: "bottom-right",

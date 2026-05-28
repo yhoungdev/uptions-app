@@ -14,3 +14,17 @@ export type ApiServiceConfig = {
 };
 
 export type HttpMethod = "DELETE" | "GET" | "PATCH" | "POST" | "PUT";
+
+export type ApiResponse<TData> = {
+	message: string;
+	data: TData;
+	status_code: number;
+};
+
+export type WaitlistRequest = {
+	email: string;
+};
+
+export type WaitlistResponse = {
+	email: string;
+};
